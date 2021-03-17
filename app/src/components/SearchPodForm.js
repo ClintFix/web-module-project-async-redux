@@ -1,11 +1,16 @@
+import { useState } from 'react';
 import { connect } from 'react-redux';
 
 const SearchPodForm = (props) => {
+    const [searchValue, setSearchValue] = useState('')
+    const onChange = evt => {
+        setSearchValue(evt.target.value)
+    }
 
     return (
-        <div>
-            Form to go here
-        </div>
+       <form>
+           <input name='search' type='text' placeholder='Search Podcast Episodes...' value={searchValue} onChange={onChange}></input>
+       </form>
     )
 }
 
