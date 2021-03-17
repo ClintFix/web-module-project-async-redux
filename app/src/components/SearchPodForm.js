@@ -1,6 +1,47 @@
+import styled from 'styled-components';
+
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { fetchEpisodes } from '../store'
+
+// STYLING //
+const SearchForm = styled.form`
+    margin: 0 auto;
+    width: 40%;
+    height: 66px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+const SearchInput = styled.input`
+    height: 36px;
+    border: 1px solid #D6D6D6;
+    border-right: none;
+    border-radius: 10px 0px 0px 10px;
+    padding: 0px 15px;
+    font-size: 15px;
+    &:focus {
+        outline: 0;
+        box-shadow: 0 0 1pt 1pt inset darkblue; 
+    }
+`
+const SearchButton = styled.button`
+    border: 1px solid #D6D6D6;
+    border-left: none;
+    border-radius: 0px 10px 10px 0px;
+    height: 38px;
+    padding: 6px;
+    &:focus {
+        outline: 0;
+    }
+    svg {
+        height: 22px;
+        width: 22px;
+    }
+
+`
+
 
 const SearchPodForm = (props) => {
     const [searchValue, setSearchValue] = useState('')
@@ -16,9 +57,9 @@ const SearchPodForm = (props) => {
     }
 
     return (
-       <form onSubmit={onSubmit}>
-           <input name='search' type='text' placeholder='Search Podcast Episodes...' value={searchValue} onChange={onChange}></input>
-           <button>
+       <SearchForm onSubmit={onSubmit}>
+           <SearchInput name='search' type='text' placeholder='Search Podcast Episodes...' value={searchValue} onChange={onChange}></SearchInput>
+           <SearchButton>
                <svg x="0px" y="0px" width="30.239px" height="30.239px" viewBox="0 0 30.239 30.239">
                     <g>
                     <path d="M20.194,3.46c-4.613-4.613-12.121-4.613-16.734,0c-4.612,4.614-4.612,12.121,0,16.735
@@ -28,8 +69,8 @@ const SearchPodForm = (props) => {
                         C21.517,9.026,21.517,14.63,18.073,18.074z"/>
                     </g>
                 </svg>
-            </button>
-       </form>
+            </SearchButton>
+       </SearchForm>
     )
 }
 
