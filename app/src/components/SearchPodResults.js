@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
     return {
           // State from API
           isLoading: state.isLoading,
-          error: state.error
+          error: state.error,
+          searchResults: state.searchResults
     }
   }
 

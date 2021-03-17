@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
+import { fetchEpisodes } from '../store'
 
 const SearchPodForm = (props) => {
     const [searchValue, setSearchValue] = useState('')
@@ -10,6 +11,8 @@ const SearchPodForm = (props) => {
 
     const onSubmit = evt => {
         evt.preventDefault();
+        const searchUrlString = encodeURIComponent(searchValue.trim())
+        props.fetchEpisodes(searchUrlString);
     }
 
     return (
@@ -30,4 +33,4 @@ const SearchPodForm = (props) => {
     )
 }
 
-export default connect(null, {})(SearchPodForm)
+export default connect(null, { fetchEpisodes })(SearchPodForm)

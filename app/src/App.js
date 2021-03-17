@@ -1,6 +1,5 @@
 
 import SearchPod from './components/SearchPod'
-
 import './App.css';
 
 function App() {
